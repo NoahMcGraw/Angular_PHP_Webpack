@@ -1,4 +1,4 @@
-angular.module('app').controller('navCtrl', ['$scope', '$mdDialog', function($scope, $mdDialog) {
+angular.module('app').controller('navCtrl', ['$scope', 'BackBone', '$mdDialog', function($scope, BackBone, $mdDialog) {
     $scope.dataLoaded = false;
     $scope.nav = {
         loading: false,
@@ -8,7 +8,7 @@ angular.module('app').controller('navCtrl', ['$scope', '$mdDialog', function($sc
 
     function init() {
         BackBone.getNav({}, function(navItems, error) {
-            if (error.length) {
+            if (typeof error !== 'undefined' && error.length) {
                 $scope.nav.error = error;
                 $mdDialog.show({
                     contentElement: '#mainContainer',

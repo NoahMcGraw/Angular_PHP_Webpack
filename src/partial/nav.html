@@ -1,3 +1,9 @@
+<div class="margin-center" ng-show="!dataLoaded && !nav.error.length">
+    <div class="progress-holder" layout="column" layout-align="center center" flex="100">
+        <h2 class="md-headline">Loading Nav...</h2>
+        <md-progress-circular class="md-primary" md-mode="indeterminate" md-diameter="70"></md-progress-circular>
+    </div>
+</div>
 <div ng-repeat="link in nav.links">
     {{ link.label }}
 </div>
